@@ -24,4 +24,21 @@ class ExampleTest extends PHPUnit_Framework_TestCase
         // Assert
         $this->assertEquals($expectedOutput, $actualOutput);
     }
+
+    /**
+     * @test
+     */
+    public function it_should_run_the_legacy_file_with_given_query_params_and_get_expected_output()
+    {
+        // Arrange
+        $expectedOutput = 'Hello Jace!';
+
+        // Act
+        $actualOutput = Runner::query(__DIR__ . '/fixture/legacy/query.php', [
+            'name' => 'Jace'
+        ]);
+
+        // Assert
+        $this->assertEquals($expectedOutput, $actualOutput);
+    }
 }
